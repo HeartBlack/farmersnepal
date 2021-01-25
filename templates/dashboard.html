@@ -1,0 +1,20 @@
+
+{% for n in items %}
+{{ n.name }}<br>
+{{ n.email }}<br>
+{{ n.location }}<br>
+{{ n.address }}<br>
+{{ n.phone }}<br>
+{{ n.total_ammount }}
+
+
+<hr>
+
+{% endfor %}
+
+{% for n in place_order %}
+{{ n.product.name }}
+{{ n.quantity }}
+{{ n.total_ammount }}
+
+{% endfor%}

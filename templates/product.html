@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="container banner-part">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="our-products">
+                    <h1>Our Products</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    </header>
+    <section class="product-main latest-product ">
+        <div class="container ">
+            <div class="row">
+                <div class="different-button">
+                    <button type="button" class="btn-lg product-btn1" href='allproducts/'>All Products</button>
+                    <button type="button" class="btn-lg product-btn" onClick="all_vendors()">Filter by Vendors</button>
+                    <button type="button" class="btn-lg product-btn" onClick="all_cats()">Filter by category</button>
+                </div>
+                <div id= "all_products">
+                            <div class="all-products container" >
+                                <h2>All products</h2>
+                            </div>
+                            <div class="row">
+                            {% for total_product in all_products %}
+                                <div class="col-md-4  col-sm-6 col-lg-3 Product">
+                                    <div class="col-style">
+                                        <img src="{{ total_product.image.url }}" class="img-fluid product-img" alt="no img"><br>
+                                        <h4> {{ total_product.name }}</h4>
+                                        <p>{{ total_product.discription }}</p>
+                                        <div class="price-btn-parent">
+                                            <div class="price">{{ total_product.price }}</div>
+                                            <div class="btn">
+                                                <button class="Add-btn">
+                                                    <span class="product-card">ADD <i class="fas fa-shopping-cart"></i></span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                {% endfor %}
+                            </div>
+                            </div>
+
+
+                        <div id="vendors">
+                        <div class="all-products container vendors "  >
+                            <h2> Vendor </h2>
+                        </div>
+                        <div class="row ">
+                        {% for total_product in all_products %}
+                        <div class="col-md-4  col-sm-6 col-lg-3 Product ">
+                            <div class="col-style">
+                                <img src="{{ total_product.image.url }}" class="img-fluid product-img" alt="no img"><br>
+                                <h4> {{ total_product.name }}</h4>
+                                <p>{{ total_product.discription }}</p>
+                                <div class="price-btn-parent">
+                                    <div class="price">{{ total_product.price }}</div>
+                                    <div class="btn">
+                                        <button class="Add-btn">
+                                            <span class="product-card">ADD <i class="fas fa-shopping-cart"></i></span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    {% endfor %}
+                </div>
+            </div>
+            <div id="all_cats">               
+                 <div class="all-products container " >
+                    <h2> Catagories </h2>
+                </div>
+                <div class="row">
+                {% for total_product in all_products %}
+                <div class="col-md-4  col-sm-6 col-lg-3 Product ">
+                    <div class="col-style">
+                        <img src="{{ total_product.image.url }}" class="img-fluid product-img" alt="no img"><br>
+                        <h4> {{ total_product.name }}</h4>
+                        <p>{{ total_product.discription }}</p>
+                        <div class="price-btn-parent">
+                            <div class="price">{{ total_product.price }}</div>
+                            <div class="btn">
+                                <button class="Add-btn">
+                                    <span class="product-card">ADD <i class="fas fa-shopping-cart"></i></span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+
+                </div>
+            </div>
+        </div>
+
+
+
+    </section>
+
+
+{% endblock %}

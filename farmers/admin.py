@@ -10,9 +10,11 @@ class ProductAdmin(admin.ModelAdmin):
         'id', 'name', 'price', 'quantity', 'category','vendor','discount','sales','post_date'
     ]
 
+@admin.register(Vendor)
+class VendorAdmin(admin.ModelAdmin):
+    list_display =[ 'Phone','name']
 
 admin.site.register(Order_item)
 admin.site.register(Place_order)
-admin.site.register(Vendor)
 admin.site.register(Contat_us)
 admin.site.register(Subscriber)

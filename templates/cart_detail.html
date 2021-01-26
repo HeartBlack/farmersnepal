@@ -247,7 +247,7 @@
         <td data-label="Due Date"></td>
         <td data-label="Amount"></td>
         <td data-label="Period"></td>
-        <td data-label="Amount" class='discount'></td>
+        <td data-label="Amount" class='discount'>{{get_discount}}</td>
         <td data-label="Amount"></td>
     </tr>
     <tr>
@@ -255,7 +255,7 @@
         <td data-label="Due Date"></td>
         <td data-label="Amount"></td>
         <td data-label="Period"></td>
-        <td data-label="Amount"></td>
+        <td data-label="Amount" id ='delivery'></td>
         <td data-label="Amount"></td>
     </tr>
     <tr>
@@ -270,8 +270,13 @@
 
 
     </tbody>
+      
 </table>
+<input type="radio" name="choice" value="100"> Inside valley
+<input type="radio" name="choice" value="150"> Outside valley
 
+<p id="text" style="display:none">200</p>
+<p id="text1" style="display:none">100</p>
 
 <div class="row">
     <div class="col-md-12">
@@ -283,8 +288,11 @@
                 {% csrf_token %}
                 {{ form }}
 
+      
+        
 
-                <button type="submit">Place Order</button>
+
+                <button type="submit" id ='btn'>Place Order</button>
 
             </form>
         </div>
@@ -302,5 +310,23 @@
     document.querySelector(".NetTotal").innerHTML = sumVal;
 
     document.querySelector('.Alltotal').innerHTML = sumVal + 100;
+
+
+    function myFunction() {
+  var checkBox1 = document.getElementById("inside");
+  var checkBox = document.getElementById("outside");
+  var text = document.getElementById("text");
+  var text1 = document.getElementById("text1");
+  if (checkBox.checked == true){
+    text.style.display = "block";
+  } else {
+     text.style.display = "none";
+  }
+  if (checkBox1.checked == true){
+    text1.style.display = "block";
+  } else {
+     text1.style.display = "none";
+  }
+}
 
 </script>

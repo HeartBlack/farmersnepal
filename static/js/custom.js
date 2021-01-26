@@ -8,9 +8,6 @@ function addToCart(productID) {
           
           
       })
-      .then (function(data){
-        document.querySelectorAll('.discount').innerHTML = data.discount 
-    })
-      
+     
       
 }

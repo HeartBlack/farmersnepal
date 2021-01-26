@@ -30,10 +30,8 @@ def home(request):
 def cart_add(request, id):
     cart = Cart(request)
     product = Product.objects.get(id=id)
-    discount=product.discount
-    print(discount)
     cart.add(product=product)
-    return JsonResponse({"message": len(request.session['cart']),'discount':discount})
+    return JsonResponse({"message": len(request.session['cart'])})
 
 
 @login_required(login_url="login")
@@ -71,6 +69,7 @@ def cart_clear(request):
 
 
 def cart_detail(request):
+    # discount = Product.objects.get()
     form = place_order()
     context = {
         'form': form,
@@ -87,8 +86,9 @@ def order_place(request):
         prodct_qty = float((value['quantity']))
         product_price = float(value['price'])        
         total_ammount = prodct_qty * product_price
+
+
         pz = Product.objects.get(id=product_id)
-        discount =pz.discount
         pz.sales = int(pz.sales) + 1
         pz.save()
         data = Order_item.objects.create(product_id=product_id,
@@ -97,6 +97,7 @@ def order_place(request):
         data.save()
 
     if request.method == 'POST':
+        
         form = place_order(request.POST)
         if form.is_valid():
             form.save()
